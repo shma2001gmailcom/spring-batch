@@ -1,20 +1,22 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 		http://www.springframework.org/schema/jdbc
 		http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd">
-		
-	<bean id="productDataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/tutoref" />
-		<property name="username" value="root" />
-		<property name="password" value="ChangeMe" />
-	</bean>
 
-	<bean id="transactionManager"
-		class="org.springframework.batch.support.transaction.ResourcelessTransactionManager" />
+    <bean id="productDataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url"
+                  value="jdbc:mysql://localhost:3306/tutoref?verifyServerCertificate=false&amp;useSSL=false&amp;requireSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
+
+        <property name="username" value="user1"/>
+        <property name="password" value="user1"/>
+    </bean>
+
+    <bean id="transactionManager"
+          class="org.springframework.batch.support.transaction.ResourcelessTransactionManager"/>
 
 </beans>
